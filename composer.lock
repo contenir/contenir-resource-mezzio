@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51fbc079842c7c504de14b7b6b82f2e2",
+    "content-hash": "8a73a5b4fa8ed506e121f7797615f9e5",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
@@ -94,16 +94,17 @@
         },
         {
             "name": "contenir/contenir-resource",
-            "version": "2.0.0-RC1",
+            "version": "v2.0.0-RC1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-resource.git",
-                "reference": "cb35aa5df5605899e352b8e9e3ef4b32418dd75c"
+                "reference": "cc2a6117be68df503814ec814fd10f894393e35c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/cb35aa5df5605899e352b8e9e3ef4b32418dd75c",
-                "reference": "cb35aa5df5605899e352b8e9e3ef4b32418dd75c"
+                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/cc2a6117be68df503814ec814fd10f894393e35c",
+                "reference": "cc2a6117be68df503814ec814fd10f894393e35c",
+                "shasum": ""
             },
             "require": {
                 "contenir/contenir-db-model": "^2.0@RC",
@@ -111,10 +112,20 @@
                 "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
                 "psr/container": "^1.1 || ^2.0"
             },
+            "require-dev": {
+                "infection/infection": "^0.34.1",
+                "laminas/laminas-servicemanager": "^3.22 || ^4.0",
+                "php-db/phpdb-qa-tools": "0.1.x-dev",
+                "php-db/phpdb-sqlite": "^0.2.0 || 0.3.x-dev",
+                "phpunit/phpunit": "^11.5.42"
+            },
             "type": "library",
             "extra": {
                 "laminas": {
                     "config-provider": "Contenir\\Resource\\Core\\ConfigProvider"
+                },
+                "branch-alias": {
+                    "dev-main": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -122,9 +133,25 @@
                     "Contenir\\Resource\\Core\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
-            ]
+            ],
+            "description": "Contenir resources on contenir-db-model 2: attribute-mapped resource, collection and type entities, repositories, the page tree, page metadata, summaries and link normalisation. Framework neutral.",
+            "homepage": "https://contenir.com.au",
+            "keywords": [
+                "contenir",
+                "data-mapper",
+                "metadata",
+                "resource",
+                "seo"
+            ],
+            "support": {
+                "docs": "https://docs.contenir.com.au/contenir-resource/",
+                "issues": "https://github.com/contenir/contenir-resource/issues",
+                "source": "https://github.com/contenir/contenir-resource"
+            },
+            "time": "2026-10-06T00:10:22+00:00"
         },
         {
             "name": "contenir/contenir-workflow-mezzio",
