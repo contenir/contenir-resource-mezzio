@@ -1,0 +1,150 @@
+{
+    "name": "contenir/contenir-resource-mezzio",
+    "description": "Mezzio adapter for contenir/contenir-resource: workflow routing and navigation for Contenir resources, a middleware that resolves the routed resource and its page metadata, resource URLs and optional laminas-view helpers.",
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "contenir",
+        "mezzio",
+        "psr-15",
+        "resource",
+        "metadata",
+        "seo"
+    ],
+    "homepage": "https://contenir.com.au",
+    "support": {
+        "issues": "https://github.com/contenir/contenir-resource-mezzio/issues",
+        "source": "https://github.com/contenir/contenir-resource-mezzio"
+    },
+    "require": {
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+        "contenir/contenir-db-model": "^2.0@RC",
+        "contenir/contenir-metadata": "^2.0",
+        "contenir/contenir-resource": "^2.0@RC",
+        "contenir/contenir-workflow-mezzio": "^2.1",
+        "laminas/laminas-cache": "^3.12",
+        "laminas/laminas-servicemanager": "^3.22",
+        "mezzio/mezzio": "^3.18",
+        "mezzio/mezzio-router": "^3.17",
+        "mezzio/mezzio-template": "^2.10",
+        "psr/container": "^1.1 || ^2.0",
+        "psr/http-message": "^1.1 || ^2.0",
+        "psr/http-server-handler": "^1.0.2",
+        "psr/http-server-middleware": "^1.0.2"
+    },
+    "require-dev": {
+        "infection/infection": "^0.34.1",
+        "laminas/laminas-cache-storage-adapter-memory": "^2.3",
+        "laminas/laminas-config-aggregator": "^1.15",
+        "laminas/laminas-diactoros": "^3.3",
+        "laminas/laminas-view": "^2.36",
+        "mezzio/mezzio-fastroute": "^3.12",
+        "php-db/phpdb-qa-tools": "0.1.x-dev",
+        "php-db/phpdb-sqlite": "0.3.x-dev",
+        "phpunit/phpunit": "^11.5.42"
+    },
+    "suggest": {
+        "laminas/laminas-view": "For the optional resource, resourceMeta, resourceUrl and resourceContent view helpers under mezzio/mezzio-laminasviewrenderer."
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../contenir-resource",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "contenir/contenir-resource": "2.0.0-RC1"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "contenir/contenir-db-model",
+                "version": "2.0.0-RC2",
+                "type": "library",
+                "license": [
+                    "BSD-3-Clause"
+                ],
+                "source": {
+                    "url": "https://github.com/contenir/contenir-db-model.git",
+                    "type": "git",
+                    "reference": "a11bc4f95f0418e76bff9d4175a300c14e5c8ce7"
+                },
+                "dist": {
+                    "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/a11bc4f95f0418e76bff9d4175a300c14e5c8ce7",
+                    "type": "zip",
+                    "reference": "a11bc4f95f0418e76bff9d4175a300c14e5c8ce7"
+                },
+                "require": {
+                    "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+                    "php-db/phpdb": "0.6.x-dev",
+                    "psr/container": "^1.1 || ^2.0",
+                    "psr/simple-cache": "^1.0 || ^2.0 || ^3.0"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Contenir\\Db\\Model\\": "src/"
+                    }
+                },
+                "extra": {
+                    "laminas": {
+                        "component": "Contenir\\Db\\Model",
+                        "config-provider": "Contenir\\Db\\Model\\ConfigProvider"
+                    }
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Contenir\\Resource\\Mezzio\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Contenir\\Resource\\Mezzio\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@static-analysis",
+            "@test",
+            "@test-integration",
+            "@mutation-test"
+        ],
+        "cs-check": [
+            "mago format --check",
+            "mago lint"
+        ],
+        "cs-fix": [
+            "mago format",
+            "mago lint --fix"
+        ],
+        "static-analysis": "mago analyze",
+        "test": "phpunit --colors=always --testsuite unit",
+        "test-integration": "phpunit --colors=always --testsuite integration",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+        "mutation-test": "infection"
+    },
+    "config": {
+        "platform": {
+            "php": "8.3.99"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
+    "extra": {
+        "laminas": {
+            "config-provider": "Contenir\\Resource\\Mezzio\\ConfigProvider"
+        },
+        "branch-alias": {
+            "dev-main": "2.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
