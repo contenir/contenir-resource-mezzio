@@ -36,9 +36,14 @@ trait ApplicationContainerTrait
 
     /**
      * @param array<string, mixed> $resourceConfig
+     * @param list<class-string>   $providers      Further config providers, such as a preview renderer's
+     * @param array<string, mixed> $config         Further application configuration
      */
-    private function setUpApplicationContainer(array $resourceConfig = []): void
-    {
+    private function setUpApplicationContainer(
+        array $resourceConfig = [],
+        array $providers = [],
+        array $config = [],
+    ): void {
         $config = (new ConfigAggregator([
             MezzioConfigProvider::class,
             RouterConfigProvider::class,
@@ -47,7 +52,9 @@ trait ApplicationContainerTrait
             WorkflowConfigProvider::class,
             ResourceConfigProvider::class,
             ConfigProvider::class,
+            ...$providers,
             new ArrayProvider([
+                ...$config,
                 'contenir_resource' => $resourceConfig,
                 'workflow_manager'  => ['strategy' => ResourceStrategy::class, 'cache' => 'RouteCache'],
                 'dependencies'      => [

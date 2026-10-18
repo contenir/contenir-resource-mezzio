@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- CMS previews of pages, with contenir-preview-mezzio piped before routing: `Preview\WorkflowPageResolver` resolves
+  the CMS section that edits pages to the middleware its workflow names, and `ResourceMiddleware` loads the page with
+  the editor's unsaved values, drafts included, through contenir-resource's preview of the resource manager. See
+  [CMS previews](docs/previews.md).
+
 ## [2.0.0-RC1] - 2026-10-06
 
 First release: the Mezzio adapter for contenir/contenir-resource 2, replacing the laminas-mvc parts of

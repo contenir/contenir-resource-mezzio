@@ -147,6 +147,7 @@ final class PageHandler implements RequestHandlerInterface
 | `ResourceAttribute` | Reads the attached resource (`resource()`, `require()`) and metadata (`metadata()`) |
 | `Url\ResourceUrlGenerator` | Resource links through the router, editor-entered links through `ExternalUrl` |
 | `Content\TemplateSectionRenderer` | Renders section content with the template renderer, for `ResourceSummary` |
+| `Preview\WorkflowPageResolver` | Which middleware shows a page the CMS previews |
 | `View\Helper\ResourceHelper`, `ResourceMetaHelper`, `ResourceUrlHelper`, `ResourceContentHelper` | Optional laminas-view helpers |
 | `ConfigProvider`, `Container\*Factory` | Container wiring |
 
@@ -156,6 +157,7 @@ Every concrete class is `final`. The docs cover each area:
 - [The resource middleware](docs/middleware.md)
 - [Metadata, templates and links](docs/templates.md)
 - [laminas-view helpers](docs/view-helpers.md)
+- [CMS previews](docs/previews.md)
 - [Configuration](docs/configuration.md)
 - [Coming from contenir-resource 1.x (laminas-mvc)](docs/migration.md)
 

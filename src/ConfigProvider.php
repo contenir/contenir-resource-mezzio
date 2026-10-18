@@ -10,8 +10,10 @@ use Contenir\Resource\Mezzio\Container\ResourceTreeAdapterFactory;
 use Contenir\Resource\Mezzio\Container\ResourceUrlGeneratorFactory;
 use Contenir\Resource\Mezzio\Container\TemplateSectionRendererFactory;
 use Contenir\Resource\Mezzio\Container\ViewHelperFactory;
+use Contenir\Resource\Mezzio\Container\WorkflowPageResolverFactory;
 use Contenir\Resource\Mezzio\Content\TemplateSectionRenderer;
 use Contenir\Resource\Mezzio\Middleware\ResourceMiddleware;
+use Contenir\Resource\Mezzio\Preview\WorkflowPageResolver;
 use Contenir\Resource\Mezzio\Url\ResourceUrlGenerator;
 use Contenir\Resource\Mezzio\View\Helper\ResourceContentHelper;
 use Contenir\Resource\Mezzio\View\Helper\ResourceHelper;
@@ -25,6 +27,10 @@ use Contenir\Resource\Mezzio\Workflow\ResourceTreeAdapter;
  * view helpers. The resource services themselves (repositories, manager,
  * metadata builder) come from contenir/contenir-resource's ConfigProvider,
  * which must be registered too.
+ *
+ * CMS previews: with contenir-preview-mezzio as well, contenir-resource's ConfigProvider wraps
+ * the resource manager so a previewed resource carries the editor's unsaved values, and
+ * WorkflowPageResolver resolves the CMS section that edits the site's pages.
  *
  * It contributes no "contenir_resource" or "workflow_manager" config: every
  * setting has a default in code, and routing is switched on by the
@@ -46,6 +52,7 @@ final class ConfigProvider
                 ResourceTreeAdapter::class     => ResourceTreeAdapterFactory::class,
                 ResourceUrlGenerator::class    => ResourceUrlGeneratorFactory::class,
                 TemplateSectionRenderer::class => TemplateSectionRendererFactory::class,
+                WorkflowPageResolver::class    => WorkflowPageResolverFactory::class,
             ],
         ];
     }

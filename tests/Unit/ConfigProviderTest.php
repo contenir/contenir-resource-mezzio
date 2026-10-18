@@ -11,8 +11,10 @@ use Contenir\Resource\Mezzio\Container\ResourceTreeAdapterFactory;
 use Contenir\Resource\Mezzio\Container\ResourceUrlGeneratorFactory;
 use Contenir\Resource\Mezzio\Container\TemplateSectionRendererFactory;
 use Contenir\Resource\Mezzio\Container\ViewHelperFactory;
+use Contenir\Resource\Mezzio\Container\WorkflowPageResolverFactory;
 use Contenir\Resource\Mezzio\Content\TemplateSectionRenderer;
 use Contenir\Resource\Mezzio\Middleware\ResourceMiddleware;
+use Contenir\Resource\Mezzio\Preview\WorkflowPageResolver;
 use Contenir\Resource\Mezzio\Url\ResourceUrlGenerator;
 use Contenir\Resource\Mezzio\View\Helper\ResourceContentHelper;
 use Contenir\Resource\Mezzio\View\Helper\ResourceHelper;
@@ -48,6 +50,7 @@ final class ConfigProviderTest extends TestCase
                 ResourceTreeAdapter::class     => ResourceTreeAdapterFactory::class,
                 ResourceUrlGenerator::class    => ResourceUrlGeneratorFactory::class,
                 TemplateSectionRenderer::class => TemplateSectionRendererFactory::class,
+                WorkflowPageResolver::class    => WorkflowPageResolverFactory::class,
             ]],
             (new ConfigProvider())->getDependencies(),
         );

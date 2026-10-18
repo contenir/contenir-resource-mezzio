@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Contenir\Resource\Mezzio\Tests\Unit\Container;
 
 use Contenir\Db\Model\EntityManager;
+use Contenir\Preview\PreviewRecord;
 use Contenir\Resource\Core\Content\ResourceSummary;
 use Contenir\Resource\Core\Exception\ConfigurationException;
 use Contenir\Resource\Core\Metadata\PageMetadataBuilder;
@@ -15,16 +16,20 @@ use Contenir\Resource\Mezzio\Container\ResourceStrategyFactory;
 use Contenir\Resource\Mezzio\Container\ResourceTreeAdapterFactory;
 use Contenir\Resource\Mezzio\Container\ResourceUrlGeneratorFactory;
 use Contenir\Resource\Mezzio\Container\TemplateSectionRendererFactory;
+use Contenir\Resource\Mezzio\Container\WorkflowPageResolverFactory;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Container\ArrayContainer;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Entity\ResourceFactory;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Entity\SectionResourceEntity;
+use Contenir\Resource\Mezzio\Tests\TestAsset\Handler\PageHandler;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Handler\RecordingHandler;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Manager\InMemoryResourceManager;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Router\RecordingRouter;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Template\RecordingRenderer;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Workflow\InMemoryResourceAdapter;
+use Contenir\Resource\Mezzio\Tests\TestAsset\Workflow\PageHandlerWorkflow;
 use Contenir\Resource\Mezzio\Workflow\ResourceTreeAdapter;
 use Contenir\Resource\Mezzio\Workflow\WorkflowResource;
+use Contenir\Workflow\Workflow\WorkflowFactory;
 use Contenir\Workflow\Workflow\WorkflowPluginManager;
 use Laminas\Cache\Storage\Adapter\Memory;
 use Laminas\Diactoros\ServerRequest;
@@ -90,6 +95,20 @@ final class FactoriesTest extends TestCase
         );
 
         static::assertSame(410, $response->getStatusCode());
+    }
+
+    #[Test]
+    public function thePageResolverFindsMiddlewareThroughTheWorkflowManager(): void
+    {
+        $workflows = new WorkflowPluginManager(new ArrayContainer(), [
+            'aliases'   => ['handler' => PageHandlerWorkflow::class],
+            'factories' => [PageHandlerWorkflow::class => WorkflowFactory::class],
+        ]);
+
+        $target = (new WorkflowPageResolverFactory())(new ArrayContainer([WorkflowPluginManager::class => $workflows]))
+            ->resolve(new PreviewRecord('site.page.home', ['resource_id' => '1'], ['workflow' => 'handler']));
+
+        static::assertSame(PageHandler::class, $target->handler);
     }
 
     #[Test]
