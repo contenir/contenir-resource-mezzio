@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "750bc13804c27ac30383a39dbe63fbda",
+    "content-hash": "094c2db049faf4a5e998c5ca46efe5df",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
@@ -123,12 +123,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-resource.git",
-                "reference": "948e104c6f14f89673f4e3031f1a58cd5fa4e47e"
+                "reference": "bbf974fe69387b0b3872414800320e62f29f3c87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/948e104c6f14f89673f4e3031f1a58cd5fa4e47e",
-                "reference": "948e104c6f14f89673f4e3031f1a58cd5fa4e47e",
+                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/bbf974fe69387b0b3872414800320e62f29f3c87",
+                "reference": "bbf974fe69387b0b3872414800320e62f29f3c87",
                 "shasum": ""
             },
             "require": {
@@ -138,7 +138,7 @@
                 "psr/container": "^1.1 || ^2.0"
             },
             "require-dev": {
-                "contenir/contenir-preview": "dev-feat/container as 0.1.x-dev",
+                "contenir/contenir-preview": "0.1.x-dev",
                 "contenir/contenir-qa-tools": "0.1.x-dev",
                 "infection/infection": "^0.34.1",
                 "laminas/laminas-servicemanager": "^3.22 || ^4.0",
@@ -180,7 +180,7 @@
                 "issues": "https://github.com/contenir/contenir-resource/issues",
                 "source": "https://github.com/contenir/contenir-resource"
             },
-            "time": "2026-10-18T00:25:29+00:00"
+            "time": "2026-10-18T01:32:30+00:00"
         },
         {
             "name": "contenir/contenir-workflow-mezzio",
@@ -2074,16 +2074,16 @@
         },
         {
             "name": "contenir/contenir-preview",
-            "version": "dev-feat/container",
+            "version": "0.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-preview.git",
-                "reference": "3a4cc5193cd59c1c1dbca28703c73659cc9a51a1"
+                "reference": "6d11419093dc26c12c813d2115772c8340163686"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/3a4cc5193cd59c1c1dbca28703c73659cc9a51a1",
-                "reference": "3a4cc5193cd59c1c1dbca28703c73659cc9a51a1",
+                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/6d11419093dc26c12c813d2115772c8340163686",
+                "reference": "6d11419093dc26c12c813d2115772c8340163686",
                 "shasum": ""
             },
             "require": {
@@ -2097,6 +2097,7 @@
                 "infection/infection": "^0.35.6",
                 "phpunit/phpunit": "^11.5"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2115,9 +2116,9 @@
             ],
             "support": {
                 "issues": "https://github.com/contenir/contenir-preview/issues",
-                "source": "https://github.com/contenir/contenir-preview/tree/feat/container"
+                "source": "https://github.com/contenir/contenir-preview/tree/0.1.x"
             },
-            "time": "2026-10-18T00:22:59+00:00"
+            "time": "2026-10-18T01:29:59+00:00"
         },
         {
             "name": "contenir/contenir-preview-mezzio",
@@ -2125,16 +2126,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-preview-mezzio.git",
-                "reference": "68d591b5446fa84f991e77d0bed69dd13b96f1a9"
+                "reference": "f8014886811f69060d6ee34ef73e409bce45cdcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-preview-mezzio/zipball/68d591b5446fa84f991e77d0bed69dd13b96f1a9",
-                "reference": "68d591b5446fa84f991e77d0bed69dd13b96f1a9",
+                "url": "https://api.github.com/repos/contenir/contenir-preview-mezzio/zipball/f8014886811f69060d6ee34ef73e409bce45cdcc",
+                "reference": "f8014886811f69060d6ee34ef73e409bce45cdcc",
                 "shasum": ""
             },
             "require": {
-                "contenir/contenir-preview": "dev-feat/container as 0.1.x-dev",
+                "contenir/contenir-preview": "0.1.x-dev",
                 "mezzio/mezzio": "^3.18",
                 "mezzio/mezzio-router": "^3.17",
                 "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
@@ -2216,7 +2217,7 @@
                 "source": "https://github.com/contenir/contenir-preview-mezzio/tree/0.1.x",
                 "issues": "https://github.com/contenir/contenir-preview-mezzio/issues"
             },
-            "time": "2026-10-18T00:28:30+00:00"
+            "time": "2026-10-18T01:31:33+00:00"
         },
         {
             "name": "contenir/contenir-qa-tools",
@@ -6658,12 +6659,6 @@
             "alias_normalized": "2.0.0.0-RC5"
         },
         {
-            "package": "contenir/contenir-preview",
-            "version": "dev-feat/container",
-            "alias": "0.1.x-dev",
-            "alias_normalized": "0.1.9999999.9999999-dev"
-        },
-        {
             "package": "contenir/contenir-resource",
             "version": "dev-feat/previews",
             "alias": "2.0.0-rc2",
@@ -6674,7 +6669,6 @@
     "stability-flags": {
         "contenir/contenir-db-model": 20,
         "contenir/contenir-resource": 20,
-        "contenir/contenir-preview": 20,
         "contenir/contenir-preview-mezzio": 20,
         "contenir/contenir-qa-tools": 20,
         "php-db/phpdb-sqlite": 20
