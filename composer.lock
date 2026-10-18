@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8cd3d0037328ae35fe65743f35f5c7f",
+    "content-hash": "4f6f01a476bdef7a9cc257923e3efa0d",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
@@ -2166,42 +2166,7 @@
                     "Contenir\\Preview\\Mezzio\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Contenir\\Preview\\Mezzio\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@static-analysis",
-                    "@test",
-                    "@test-integration"
-                ],
-                "cs-check": [
-                    "mago format --check",
-                    "mago lint"
-                ],
-                "cs-fix": [
-                    "mago format",
-                    "mago lint --fix"
-                ],
-                "static-analysis": [
-                    "mago analyze"
-                ],
-                "test": [
-                    "phpunit --colors=always --testsuite unit"
-                ],
-                "test-integration": [
-                    "phpunit --colors=always --testsuite integration"
-                ],
-                "test-coverage": [
-                    "phpunit --colors=always --coverage-clover clover.xml"
-                ],
-                "mutation-test": [
-                    "infection"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2214,8 +2179,8 @@
                 "psr-15"
             ],
             "support": {
-                "source": "https://github.com/contenir/contenir-preview-mezzio/tree/0.1.x",
-                "issues": "https://github.com/contenir/contenir-preview-mezzio/issues"
+                "issues": "https://github.com/contenir/contenir-preview-mezzio/issues",
+                "source": "https://github.com/contenir/contenir-preview-mezzio/tree/0.1.x"
             },
             "time": "2026-10-18T01:31:33+00:00"
         },

@@ -98,11 +98,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/contenir/contenir-preview-mezzio"
-        }
-    ]
+    "prefer-stable": true
 }
