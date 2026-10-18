@@ -18,9 +18,9 @@
     },
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-        "contenir/contenir-db-model": "^2.0@RC",
+        "contenir/contenir-db-model": "^2.0.0-rc5",
         "contenir/contenir-metadata": "^2.0",
-        "contenir/contenir-resource": "^2.0@RC",
+        "contenir/contenir-resource": "^2.0.0-RC2",
         "contenir/contenir-workflow-mezzio": "^2.1",
         "laminas/laminas-cache": "^3.12",
         "laminas/laminas-servicemanager": "^3.22",
@@ -33,6 +33,7 @@
         "psr/http-server-middleware": "^1.0.2"
     },
     "require-dev": {
+        "contenir/contenir-preview-mezzio": "0.1.x-dev",
         "contenir/contenir-qa-tools": "0.1.x-dev",
         "infection/infection": "^0.34.1",
         "laminas/laminas-cache-storage-adapter-memory": "^2.3",
@@ -44,6 +45,7 @@
         "phpunit/phpunit": "^11.5.42"
     },
     "suggest": {
+        "contenir/contenir-preview-mezzio": "Renders the Contenir CMS's previews of resources, with their unsaved values (see docs/previews.md)",
         "laminas/laminas-view": "For the optional resource, resourceMeta, resourceUrl and resourceContent view helpers under mezzio/mezzio-laminasviewrenderer."
     },
     "autoload": {
@@ -96,5 +98,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/contenir/contenir-preview-mezzio"
+        }
+    ]
 }

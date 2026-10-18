@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a17aa7d052c2156ff62b3e03af0c445",
+    "content-hash": "b8cd3d0037328ae35fe65743f35f5c7f",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
-            "version": "v2.0.0-rc3",
+            "version": "v2.0.0-rc5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-db-model.git",
-                "reference": "4b1d8e5e5881b96aa89d2ba8679f461713bf1275"
+                "reference": "e699fa92fbdf24a8b3ee42dcf0c518c47feb7170"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/4b1d8e5e5881b96aa89d2ba8679f461713bf1275",
-                "reference": "4b1d8e5e5881b96aa89d2ba8679f461713bf1275",
+                "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/e699fa92fbdf24a8b3ee42dcf0c518c47feb7170",
+                "reference": "e699fa92fbdf24a8b3ee42dcf0c518c47feb7170",
                 "shasum": ""
             },
             "require": {
@@ -27,9 +27,10 @@
                 "psr/simple-cache": "^1.0 || ^2.0 || ^3.0"
             },
             "require-dev": {
+                "contenir/contenir-qa-tools": "0.1.x-dev",
+                "infection/infection": "^0.34.1",
                 "php-db/phpdb-mysql": "^0.4.0",
                 "php-db/phpdb-pgsql": "0.1.x-dev",
-                "php-db/phpdb-qa-tools": "0.1.x-dev",
                 "php-db/phpdb-sqlite": "^0.2.0",
                 "phpunit/phpunit": "^11.5.42"
             },
@@ -63,7 +64,7 @@
                 "issues": "https://github.com/contenir/contenir-db-model/issues",
                 "source": "https://github.com/contenir/contenir-db-model"
             },
-            "time": "2026-10-06T01:13:36+00:00"
+            "time": "2026-10-18T01:53:15+00:00"
         },
         {
             "name": "contenir/contenir-metadata",
@@ -118,30 +119,34 @@
         },
         {
             "name": "contenir/contenir-resource",
-            "version": "v2.0.0-RC1",
+            "version": "v2.0.0-RC2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-resource.git",
-                "reference": "cc2a6117be68df503814ec814fd10f894393e35c"
+                "reference": "962f706da12907bb5d36f1cd14f8f612ec633ee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/cc2a6117be68df503814ec814fd10f894393e35c",
-                "reference": "cc2a6117be68df503814ec814fd10f894393e35c",
+                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/962f706da12907bb5d36f1cd14f8f612ec633ee0",
+                "reference": "962f706da12907bb5d36f1cd14f8f612ec633ee0",
                 "shasum": ""
             },
             "require": {
-                "contenir/contenir-db-model": "^2.0@RC",
+                "contenir/contenir-db-model": "^2.0.0-rc5",
                 "contenir/contenir-metadata": "^2.0",
                 "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
                 "psr/container": "^1.1 || ^2.0"
             },
             "require-dev": {
+                "contenir/contenir-preview": "0.1.x-dev",
+                "contenir/contenir-qa-tools": "0.1.x-dev",
                 "infection/infection": "^0.34.1",
                 "laminas/laminas-servicemanager": "^3.22 || ^4.0",
-                "php-db/phpdb-qa-tools": "0.1.x-dev",
                 "php-db/phpdb-sqlite": "^0.2.0 || 0.3.x-dev",
                 "phpunit/phpunit": "^11.5.42"
+            },
+            "suggest": {
+                "contenir/contenir-preview": "Lets a CMS preview show a resource's unsaved values (see docs/previews.md)"
             },
             "type": "library",
             "extra": {
@@ -171,11 +176,11 @@
                 "seo"
             ],
             "support": {
-                "docs": "https://docs.contenir.com.au/contenir-resource/",
+                "docs": "https://github.com/contenir/contenir-resource/tree/main/docs",
                 "issues": "https://github.com/contenir/contenir-resource/issues",
                 "source": "https://github.com/contenir/contenir-resource"
             },
-            "time": "2026-10-06T00:10:22+00:00"
+            "time": "2026-10-18T02:02:38+00:00"
         },
         {
             "name": "contenir/contenir-workflow-mezzio",
@@ -479,16 +484,16 @@
         },
         {
             "name": "laminas/laminas-diactoros",
-            "version": "3.8.0",
+            "version": "3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-diactoros.git",
-                "reference": "60c182916b2749480895601649563970f3f12ec4"
+                "reference": "4ab9fe10869ac0cd46fa78e641b6d0f4389bc6b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/60c182916b2749480895601649563970f3f12ec4",
-                "reference": "60c182916b2749480895601649563970f3f12ec4",
+                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/4ab9fe10869ac0cd46fa78e641b6d0f4389bc6b4",
+                "reference": "4ab9fe10869ac0cd46fa78e641b6d0f4389bc6b4",
                 "shasum": ""
             },
             "require": {
@@ -504,6 +509,7 @@
                 "psr/http-message-implementation": "^1.1 || ^2.0"
             },
             "require-dev": {
+                "boundwize/structarmed": "^0.17.7",
                 "ext-curl": "*",
                 "ext-dom": "*",
                 "ext-gd": "*",
@@ -559,11 +565,11 @@
             },
             "funding": [
                 {
-                    "url": "https://funding.communitybridge.org/projects/laminas-project",
-                    "type": "community_bridge"
+                    "url": "https://crowdfunding.linuxfoundation.org/initiatives/laminas-project",
+                    "type": "custom"
                 }
             ],
-            "time": "2025-10-12T15:31:36+00:00"
+            "time": "2026-10-08T08:19:47+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -1249,12 +1255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-db/phpdb.git",
-                "reference": "7e34877ca85ccb98df60f96ca89673205ba21a08"
+                "reference": "e9dd92db553daae79ddc4ff197b20fe7bbdf6b10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-db/phpdb/zipball/7e34877ca85ccb98df60f96ca89673205ba21a08",
-                "reference": "7e34877ca85ccb98df60f96ca89673205ba21a08",
+                "url": "https://api.github.com/repos/php-db/phpdb/zipball/e9dd92db553daae79ddc4ff197b20fe7bbdf6b10",
+                "reference": "e9dd92db553daae79ddc4ff197b20fe7bbdf6b10",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1314,7 @@
                 "issues": "https://github.com/php-db/phpdb/issues",
                 "source": "https://github.com/php-db/phpdb"
             },
-            "time": "2026-10-06T00:51:09+00:00"
+            "time": "2026-10-12T05:05:03+00:00"
         },
         {
             "name": "psr/cache",
@@ -2067,17 +2073,164 @@
             "time": "2024-05-06T16:37:16+00:00"
         },
         {
+            "name": "contenir/contenir-preview",
+            "version": "0.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contenir/contenir-preview.git",
+                "reference": "6d11419093dc26c12c813d2115772c8340163686"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contenir/contenir-preview/zipball/6d11419093dc26c12c813d2115772c8340163686",
+                "reference": "6d11419093dc26c12c813d2115772c8340163686",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+                "psr/clock": "^1.0",
+                "psr/container": "^1.1 || ^2.0",
+                "psr/simple-cache": "^1.0 || ^2.0 || ^3.0"
+            },
+            "require-dev": {
+                "contenir/contenir-qa-tools": "0.1.x-dev",
+                "infection/infection": "^0.35.6",
+                "phpunit/phpunit": "^11.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Contenir\\Preview\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Contenir preview protocol: signed preview tokens from the CMS, their verification on a site, and the request-scoped context a site renders a previewed record from.",
+            "keywords": [
+                "cms",
+                "contenir",
+                "preview"
+            ],
+            "support": {
+                "issues": "https://github.com/contenir/contenir-preview/issues",
+                "source": "https://github.com/contenir/contenir-preview/tree/0.1.x"
+            },
+            "time": "2026-10-18T01:29:59+00:00"
+        },
+        {
+            "name": "contenir/contenir-preview-mezzio",
+            "version": "0.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/contenir/contenir-preview-mezzio.git",
+                "reference": "f8014886811f69060d6ee34ef73e409bce45cdcc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/contenir/contenir-preview-mezzio/zipball/f8014886811f69060d6ee34ef73e409bce45cdcc",
+                "reference": "f8014886811f69060d6ee34ef73e409bce45cdcc",
+                "shasum": ""
+            },
+            "require": {
+                "contenir/contenir-preview": "0.1.x-dev",
+                "mezzio/mezzio": "^3.18",
+                "mezzio/mezzio-router": "^3.17",
+                "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+                "psr/container": "^1.1 || ^2.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.1 || ^2.0",
+                "psr/http-server-handler": "^1.0.2",
+                "psr/http-server-middleware": "^1.0.2"
+            },
+            "require-dev": {
+                "contenir/contenir-qa-tools": "0.1.x-dev",
+                "infection/infection": "^0.35.6",
+                "laminas/laminas-config-aggregator": "^1.15",
+                "laminas/laminas-diactoros": "^3.3",
+                "laminas/laminas-servicemanager": "^3.22",
+                "mezzio/mezzio-fastroute": "^3.12",
+                "phpunit/phpunit": "^11.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laminas": {
+                    "config-provider": "Contenir\\Preview\\Mezzio\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Contenir\\Preview\\Mezzio\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Contenir\\Preview\\Mezzio\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "check": [
+                    "@cs-check",
+                    "@static-analysis",
+                    "@test",
+                    "@test-integration"
+                ],
+                "cs-check": [
+                    "mago format --check",
+                    "mago lint"
+                ],
+                "cs-fix": [
+                    "mago format",
+                    "mago lint --fix"
+                ],
+                "static-analysis": [
+                    "mago analyze"
+                ],
+                "test": [
+                    "phpunit --colors=always --testsuite unit"
+                ],
+                "test-integration": [
+                    "phpunit --colors=always --testsuite integration"
+                ],
+                "test-coverage": [
+                    "phpunit --colors=always --coverage-clover clover.xml"
+                ],
+                "mutation-test": [
+                    "infection"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Mezzio renderer for the Contenir preview protocol: answers the CMS's signed previews at /api/resource/preview by rendering the record's page with its unsaved values.",
+            "keywords": [
+                "cms",
+                "contenir",
+                "mezzio",
+                "preview",
+                "psr-15"
+            ],
+            "support": {
+                "source": "https://github.com/contenir/contenir-preview-mezzio/tree/0.1.x",
+                "issues": "https://github.com/contenir/contenir-preview-mezzio/issues"
+            },
+            "time": "2026-10-18T01:31:33+00:00"
+        },
+        {
             "name": "contenir/contenir-qa-tools",
             "version": "0.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-qa-tools.git",
-                "reference": "d9f79271be07536f357079094a6fde16f7fa1635"
+                "reference": "b8d822b1c7370e127665cf4766d3ad77c42471ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-qa-tools/zipball/d9f79271be07536f357079094a6fde16f7fa1635",
-                "reference": "d9f79271be07536f357079094a6fde16f7fa1635",
+                "url": "https://api.github.com/repos/contenir/contenir-qa-tools/zipball/b8d822b1c7370e127665cf4766d3ad77c42471ff",
+                "reference": "b8d822b1c7370e127665cf4766d3ad77c42471ff",
                 "shasum": ""
             },
             "require": {
@@ -2106,7 +2259,7 @@
             "support": {
                 "source": "https://github.com/contenir/contenir-qa-tools"
             },
-            "time": "2026-10-07T01:06:51+00:00"
+            "time": "2026-10-12T10:46:59+00:00"
         },
         {
             "name": "fidry/cpu-core-counter",
@@ -5282,16 +5435,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v7.4.20",
+            "version": "v7.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d7bca2fe05241dc7732d0c8b6d551b879f5d0a7d"
+                "reference": "21f1bc2296f7ff6043241a8dcbc09559b3732820"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d7bca2fe05241dc7732d0c8b6d551b879f5d0a7d",
-                "reference": "d7bca2fe05241dc7732d0c8b6d551b879f5d0a7d",
+                "url": "https://api.github.com/repos/symfony/console/zipball/21f1bc2296f7ff6043241a8dcbc09559b3732820",
+                "reference": "21f1bc2296f7ff6043241a8dcbc09559b3732820",
                 "shasum": ""
             },
             "require": {
@@ -5356,7 +5509,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v7.4.20"
+                "source": "https://github.com/symfony/console/tree/v7.4.21"
             },
             "funding": [
                 {
@@ -5376,7 +5529,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-18T15:55:00+00:00"
+            "time": "2026-10-12T18:45:38+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -5451,16 +5604,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v7.4.18",
+            "version": "v7.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "90d412aa5277c6819db39e7605aa46b1019e3232"
+                "reference": "fd0e3462be6d32a0d130e8423e4940a7688162d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/90d412aa5277c6819db39e7605aa46b1019e3232",
-                "reference": "90d412aa5277c6819db39e7605aa46b1019e3232",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/fd0e3462be6d32a0d130e8423e4940a7688162d8",
+                "reference": "fd0e3462be6d32a0d130e8423e4940a7688162d8",
                 "shasum": ""
             },
             "require": {
@@ -5497,7 +5650,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v7.4.18"
+                "source": "https://github.com/symfony/filesystem/tree/v7.4.21"
             },
             "funding": [
                 {
@@ -5517,7 +5670,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-08-23T10:03:40+00:00"
+            "time": "2026-10-06T20:05:19+00:00"
         },
         {
             "name": "symfony/finder",
@@ -6004,16 +6157,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v7.4.19",
+            "version": "v7.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "ed0ae095b86994d370d5791612e55984f15aa30e"
+                "reference": "e5247f4a5e0797d232ad8e8e6803aeb341843c83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/ed0ae095b86994d370d5791612e55984f15aa30e",
-                "reference": "ed0ae095b86994d370d5791612e55984f15aa30e",
+                "url": "https://api.github.com/repos/symfony/process/zipball/e5247f4a5e0797d232ad8e8e6803aeb341843c83",
+                "reference": "e5247f4a5e0797d232ad8e8e6803aeb341843c83",
                 "shasum": ""
             },
             "require": {
@@ -6045,7 +6198,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v7.4.19"
+                "source": "https://github.com/symfony/process/tree/v7.4.21"
             },
             "funding": [
                 {
@@ -6065,7 +6218,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-02T12:38:34+00:00"
+            "time": "2026-10-08T16:56:12+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -6156,16 +6309,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v7.4.19",
+            "version": "v7.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "02731ce2bd26514bec9efc0baef2cd0b0cf67f46"
+                "reference": "9bc35d074ad16a58c21cd52b18c5cacc4f4c3981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/02731ce2bd26514bec9efc0baef2cd0b0cf67f46",
-                "reference": "02731ce2bd26514bec9efc0baef2cd0b0cf67f46",
+                "url": "https://api.github.com/repos/symfony/string/zipball/9bc35d074ad16a58c21cd52b18c5cacc4f4c3981",
+                "reference": "9bc35d074ad16a58c21cd52b18c5cacc4f4c3981",
                 "shasum": ""
             },
             "require": {
@@ -6223,7 +6376,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v7.4.19"
+                "source": "https://github.com/symfony/string/tree/v7.4.21"
             },
             "funding": [
                 {
@@ -6243,7 +6396,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-11T14:46:58+00:00"
+            "time": "2026-10-03T15:15:30+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -6501,9 +6654,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "contenir/contenir-db-model": 5,
+        "contenir/contenir-preview-mezzio": 20,
         "contenir/contenir-qa-tools": 20,
-        "contenir/contenir-resource": 5,
         "php-db/phpdb-sqlite": 20
     },
     "prefer-stable": true,
@@ -6511,9 +6663,9 @@
     "platform": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.3.99"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
