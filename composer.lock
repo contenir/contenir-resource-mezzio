@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "094c2db049faf4a5e998c5ca46efe5df",
+    "content-hash": "5f5178efcdace7fd181bfe7527f0c341",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
-            "version": "dev-feat/entity-values-from-row",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-db-model.git",
-                "reference": "c77c4a889c5315ce36148c95e9cb36c0f79db21d"
+                "reference": "472bc0b70c74c3ac4be19e7460b3634f96de79d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/c77c4a889c5315ce36148c95e9cb36c0f79db21d",
-                "reference": "c77c4a889c5315ce36148c95e9cb36c0f79db21d",
+                "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/472bc0b70c74c3ac4be19e7460b3634f96de79d5",
+                "reference": "472bc0b70c74c3ac4be19e7460b3634f96de79d5",
                 "shasum": ""
             },
             "require": {
@@ -34,6 +34,7 @@
                 "php-db/phpdb-sqlite": "^0.2.0",
                 "phpunit/phpunit": "^11.5.42"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laminas": {
@@ -64,7 +65,7 @@
                 "issues": "https://github.com/contenir/contenir-db-model/issues",
                 "source": "https://github.com/contenir/contenir-db-model"
             },
-            "time": "2026-10-17T22:53:10+00:00"
+            "time": "2026-10-18T01:28:52+00:00"
         },
         {
             "name": "contenir/contenir-metadata",
@@ -123,16 +124,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-resource.git",
-                "reference": "bbf974fe69387b0b3872414800320e62f29f3c87"
+                "reference": "03de8e96e14b5b384f961f62f9ad8e89a3677ac8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/bbf974fe69387b0b3872414800320e62f29f3c87",
-                "reference": "bbf974fe69387b0b3872414800320e62f29f3c87",
+                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/03de8e96e14b5b384f961f62f9ad8e89a3677ac8",
+                "reference": "03de8e96e14b5b384f961f62f9ad8e89a3677ac8",
                 "shasum": ""
             },
             "require": {
-                "contenir/contenir-db-model": "dev-feat/entity-values-from-row as 2.0.0-rc5",
+                "contenir/contenir-db-model": "dev-main as 2.0.0-rc5",
                 "contenir/contenir-metadata": "^2.0",
                 "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
                 "psr/container": "^1.1 || ^2.0"
@@ -180,7 +181,7 @@
                 "issues": "https://github.com/contenir/contenir-resource/issues",
                 "source": "https://github.com/contenir/contenir-resource"
             },
-            "time": "2026-10-18T01:32:30+00:00"
+            "time": "2026-10-18T01:37:17+00:00"
         },
         {
             "name": "contenir/contenir-workflow-mezzio",
@@ -6654,7 +6655,7 @@
     "aliases": [
         {
             "package": "contenir/contenir-db-model",
-            "version": "dev-feat/entity-values-from-row",
+            "version": "dev-main",
             "alias": "2.0.0-rc5",
             "alias_normalized": "2.0.0.0-RC5"
         },
