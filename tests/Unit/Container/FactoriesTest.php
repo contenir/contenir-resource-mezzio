@@ -105,8 +105,11 @@ final class FactoriesTest extends TestCase
             'factories' => [PageHandlerWorkflow::class => WorkflowFactory::class],
         ]);
 
-        $target = (new WorkflowPageResolverFactory())(new ArrayContainer([WorkflowPluginManager::class => $workflows]))
-            ->resolve(new PreviewRecord('site.page.home', ['resource_id' => '1'], ['workflow' => 'handler']));
+        $container = new ArrayContainer([WorkflowPluginManager::class => $workflows]);
+
+        $target = (new WorkflowPageResolverFactory())($container)->resolve(
+            new PreviewRecord('site.page.home', ['resource_id' => '1'], ['workflow' => 'handler']),
+        );
 
         static::assertSame(PageHandler::class, $target->handler);
     }
