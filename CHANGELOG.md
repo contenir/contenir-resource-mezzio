@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- `Preview\WorkflowPageResolver` shows a preview that carries no template by the stored page's workflow, whatever the
+  page's status, rather than by `page`. A shared preview link carries no values, so this is what places it at the
+  page's own template. The resolver takes the `ResourceManagerInterface` as its second argument; its factory passes it.
+
 ## [2.0.0-RC2] - 2026-10-18
 
 ### Added

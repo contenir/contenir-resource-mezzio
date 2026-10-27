@@ -6,9 +6,13 @@ namespace Contenir\Resource\Mezzio\Tests\Unit\Preview;
 
 use Contenir\Preview\InvalidPreview;
 use Contenir\Preview\PreviewRecord;
+use Contenir\Resource\Core\Entity\AbstractResourceEntity;
+use Contenir\Resource\Core\Entity\ResourceStatus;
 use Contenir\Resource\Mezzio\Preview\WorkflowPageResolver;
+use Contenir\Resource\Mezzio\Tests\TestAsset\Entity\ResourceFactory;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Handler\PageHandler;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Handler\RecordingHandler;
+use Contenir\Resource\Mezzio\Tests\TestAsset\Manager\InMemoryResourceManager;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Preview\PreviewRecords;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Workflow\MiddlewarelessWorkflow;
 use Contenir\Resource\Mezzio\Tests\TestAsset\Workflow\PageHandlerWorkflow;
@@ -53,7 +57,7 @@ final class WorkflowPageResolverTest extends TestCase
     #[Test]
     public function aPageIsShownByItsWorkflowsMiddlewareWithItsIdAsItsRouteCarriesIt(): void
     {
-        $target = (new WorkflowPageResolver($this->workflows()))->resolve(
+        $target = $this->resolver()->resolve(
             PreviewRecords::saved(7, ['workflow' => 'handler']),
         );
 
@@ -70,7 +74,18 @@ final class WorkflowPageResolverTest extends TestCase
             'This page can be previewed once it has been saved.',
         ));
 
-        (new WorkflowPageResolver($this->workflows()))->resolve(PreviewRecords::unsaved(['workflow' => 'handler']));
+        $this->resolver()->resolve(PreviewRecords::unsaved(['workflow' => 'handler']));
+    }
+
+    #[Test]
+    public function aPagesTemplateInThePreviewOutranksItsStoredWorkflow(): void
+    {
+        $stored           = ResourceFactory::make(7);
+        $stored->workflow = 'handler';
+
+        $target = $this->resolver($stored)->resolve(PreviewRecords::saved(7, ['workflow' => 'page']));
+
+        static::assertSame(RecordingHandler::class, $target->handler);
     }
 
     #[Test]
@@ -81,16 +96,32 @@ final class WorkflowPageResolverTest extends TestCase
             'This page uses a template the site does not have.',
         ));
 
-        (new WorkflowPageResolver($this->workflows()))->resolve(PreviewRecords::saved(7, ['workflow' => $workflow]));
+        $this->resolver()->resolve(PreviewRecords::saved(7, ['workflow' => $workflow]));
+    }
+
+    #[Test]
+    public function aPageWithoutATemplateIsShownByItsStoredWorkflowWhateverItsStatus(): void
+    {
+        $stored           = ResourceFactory::make(7, status: ResourceStatus::Pending);
+        $stored->workflow = 'handler';
+
+        $target = $this->resolver($stored)->resolve(PreviewRecords::saved(7));
+
+        static::assertSame(PageHandler::class, $target->handler);
     }
 
     #[Test]
     #[DataProvider('pagesWithoutATemplate')]
-    public function aPageWithoutATemplateIsShownByThePageWorkflow(PreviewRecord $record): void
+    public function aPageWithoutATemplateOrAStoredPageIsShownByThePageWorkflow(PreviewRecord $record): void
     {
-        $target = (new WorkflowPageResolver($this->workflows()))->resolve($record);
+        $target = $this->resolver()->resolve($record);
 
         static::assertSame(RecordingHandler::class, $target->handler);
+    }
+
+    private function resolver(AbstractResourceEntity ...$stored): WorkflowPageResolver
+    {
+        return new WorkflowPageResolver($this->workflows(), new InMemoryResourceManager(...$stored));
     }
 
     private function workflows(): WorkflowPluginManager
