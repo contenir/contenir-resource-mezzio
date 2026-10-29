@@ -76,12 +76,13 @@ final class PipelineTest extends TestCase
                     . "<link rel=\"canonical\" href=\"https://www.site.test/about\">\n"
                     . "<meta property=\"og:type\" content=\"website\">\n"
                     . "<meta property=\"og:url\" content=\"https://www.site.test/about\">\n"
-                    . "<meta property=\"twitter:url\" content=\"https://www.site.test/about\">\n"
+                    . "<meta name=\"twitter:url\" content=\"https://www.site.test/about\">\n"
+                    . "<meta name=\"twitter:card\" content=\"summary\">\n"
                     . "<meta property=\"og:title\" content=\"About &lt;us&gt;\">\n"
-                    . "<meta property=\"twitter:title\" content=\"About &lt;us&gt;\">\n"
+                    . "<meta name=\"twitter:title\" content=\"About &lt;us&gt;\">\n"
                     . "<meta name=\"description\" content=\"Fish &amp; chips\">\n"
                     . "<meta property=\"og:description\" content=\"Fish &amp; chips\">\n"
-                    . "<meta property=\"twitter:description\" content=\"Fish &amp; chips\">\n"
+                    . "<meta name=\"twitter:description\" content=\"Fish &amp; chips\">\n"
                     . '<meta property="og:updated_time" content="2024-01-02T03:04:05+00:00">',
             ],
             [$response->getStatusCode(), (string) $response->getBody()],

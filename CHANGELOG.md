@@ -8,6 +8,9 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Requires `contenir/contenir-resource` ^2.0.0-RC4, whose page metadata writes the Twitter tags as
+  `<meta name="twitter:…">` with a `twitter:card`; the integration tests expect them so.
+
 - `Preview\WorkflowPageResolver` shows a preview that carries no template by the stored page's workflow, whatever the
   page's status, rather than by `page`. A shared preview link carries no values, so this is what places it at the
   page's own template. The resolver takes the `ResourceManagerInterface` as its second argument; its factory passes it.

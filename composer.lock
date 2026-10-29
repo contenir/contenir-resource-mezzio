@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f6f01a476bdef7a9cc257923e3efa0d",
+    "content-hash": "73d6e391413917e2f7e66ad783f069e4",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
@@ -119,16 +119,16 @@
         },
         {
             "name": "contenir/contenir-resource",
-            "version": "v2.0.0-RC2",
+            "version": "v2.0.0-RC4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-resource.git",
-                "reference": "962f706da12907bb5d36f1cd14f8f612ec633ee0"
+                "reference": "878b5a3a936e26914c4d364407475e0448304f30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/962f706da12907bb5d36f1cd14f8f612ec633ee0",
-                "reference": "962f706da12907bb5d36f1cd14f8f612ec633ee0",
+                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/878b5a3a936e26914c4d364407475e0448304f30",
+                "reference": "878b5a3a936e26914c4d364407475e0448304f30",
                 "shasum": ""
             },
             "require": {
@@ -180,7 +180,7 @@
                 "issues": "https://github.com/contenir/contenir-resource/issues",
                 "source": "https://github.com/contenir/contenir-resource"
             },
-            "time": "2026-10-18T02:02:38+00:00"
+            "time": "2026-10-27T05:45:32+00:00"
         },
         {
             "name": "contenir/contenir-workflow-mezzio",
@@ -6628,9 +6628,9 @@
     "platform": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.3.99"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
