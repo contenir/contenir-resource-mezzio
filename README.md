@@ -143,6 +143,7 @@ final class PageHandler implements RequestHandlerInterface
 | --- | --- |
 | `Workflow\ResourceStrategy` | workflow-mezzio strategy: workflow from the `workflow` column; navigation label, visibility and lastmod from the resource |
 | `Workflow\ResourceTreeAdapter` | workflow-mezzio resource adapter over `ResourceRepository::findPageTree()` |
+| `Workflow\ResourceTypesAdapter` | workflow-mezzio resource adapter over every published resource of the types `workflow_manager.resource_types` lists (default `['page']`), wherever each sits |
 | `Workflow\WorkflowResource` | A resource entity presented as a workflow-mezzio `ResourceInterface` |
 | `Middleware\ResourceMiddleware` | Resolves the routed resource; 404s missing or unpublished ones; attaches resource and `PageMetadata` |
 | `ResourceAttribute` | Reads the attached resource (`resource()`, `require()`) and metadata (`metadata()`) |

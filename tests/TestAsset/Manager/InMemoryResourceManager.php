@@ -9,12 +9,15 @@ use Contenir\Resource\Core\ResourceManagerInterface;
 use LogicException;
 use Override;
 
+use function array_filter;
 use function array_key_first;
+use function array_values;
+use function in_array;
 
 /**
- * A resource manager over a fixed list of resources. Only the id lookups
- * and the three helper lookups are implemented; the others are not used by
- * the adapter. Every call is recorded.
+ * A resource manager over a fixed list of resources. Only the id lookups,
+ * the three helper lookups and findByType() (by type and status) are
+ * implemented; the others are not used by the adapters. Every call is recorded.
  */
 final class InMemoryResourceManager implements ResourceManagerInterface
 {
@@ -81,7 +84,17 @@ final class InMemoryResourceManager implements ResourceManagerInterface
     #[Override]
     public function findByType(string|array $resourceTypeId, array $criteria = [], array $orderBy = []): array
     {
-        throw new LogicException('Not used by the adapter');
+        $this->calls[] = ['findByType', [$resourceTypeId, $criteria, $orderBy]];
+        $types         = (array) $resourceTypeId;
+        $status        = $criteria['status'] ?? null;
+
+        return array_values(array_filter(
+            $this->resources,
+            static fn(AbstractResourceEntity $resource): bool => (
+                in_array($resource->resourceTypeId, $types, strict: true)
+                && (null === $status || $resource->status === $status)
+            ),
+        ));
     }
 
     #[Override]
