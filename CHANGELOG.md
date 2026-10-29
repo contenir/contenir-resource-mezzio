@@ -13,6 +13,11 @@ adheres to [Semantic Versioning](https://semver.org/).
   its row names, wherever it sits. Unlike `ResourceTreeAdapter`, a page is reachable while it is published
   whatever its parent, and other types such as projects or news articles are routed beside the pages. Name it as
   `workflow_manager.repository` to use it.
+- The page metadata builder takes the site's URL from its Site Settings as its base URL when
+  `contenir_resource.base_url` is not set: `site.url`, with the CMS's `settings` overlay laid over it. Canonical
+  and share addresses then never take the request's host on a site that names its address, without any config
+  of its own. A `base_url` set in `contenir_resource` still wins. (`Container\SiteBaseUrlDelegator`, registered
+  on `PageMetadataBuilder`.)
 
 ### Changed
 
