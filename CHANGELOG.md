@@ -6,6 +6,14 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `Workflow\ResourceTypesAdapter`, a workflow-mezzio resource adapter that routes every published resource of
+  the types `workflow_manager.resource_types` lists (pages alone when it lists none), each through the workflow
+  its row names, wherever it sits. Unlike `ResourceTreeAdapter`, a page is reachable while it is published
+  whatever its parent, and other types such as projects or news articles are routed beside the pages. Name it as
+  `workflow_manager.repository` to use it.
+
 ### Changed
 
 - `Preview\WorkflowPageResolver` shows a preview that carries no template by the stored page's workflow, whatever the
