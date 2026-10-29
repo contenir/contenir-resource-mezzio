@@ -82,6 +82,7 @@ return [
         ],
     ],
     'contenir_resource' => [
+        // Optional: without it, the site's own site.url (Site Settings) is used
         'base_url' => 'https://www.example.com',
     ],
 ];
