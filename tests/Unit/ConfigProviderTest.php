@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace Contenir\Resource\Mezzio\Tests\Unit;
 
+use Contenir\Resource\Core\Metadata\PageMetadataBuilder;
 use Contenir\Resource\Mezzio\ConfigProvider;
 use Contenir\Resource\Mezzio\Container\ResourceMiddlewareFactory;
 use Contenir\Resource\Mezzio\Container\ResourceStrategyFactory;
 use Contenir\Resource\Mezzio\Container\ResourceTreeAdapterFactory;
+use Contenir\Resource\Mezzio\Container\ResourceTypesAdapterFactory;
 use Contenir\Resource\Mezzio\Container\ResourceUrlGeneratorFactory;
+use Contenir\Resource\Mezzio\Container\SiteBaseUrlDelegator;
 use Contenir\Resource\Mezzio\Container\TemplateSectionRendererFactory;
 use Contenir\Resource\Mezzio\Container\ViewHelperFactory;
 use Contenir\Resource\Mezzio\Container\WorkflowPageResolverFactory;
@@ -22,6 +25,7 @@ use Contenir\Resource\Mezzio\View\Helper\ResourceMetaHelper;
 use Contenir\Resource\Mezzio\View\Helper\ResourceUrlHelper;
 use Contenir\Resource\Mezzio\Workflow\ResourceStrategy;
 use Contenir\Resource\Mezzio\Workflow\ResourceTreeAdapter;
+use Contenir\Resource\Mezzio\Workflow\ResourceTypesAdapter;
 use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -44,14 +48,18 @@ final class ConfigProviderTest extends TestCase
     public function registersTheMezzioServices(): void
     {
         static::assertSame(
-            ['factories' => [
-                ResourceMiddleware::class      => ResourceMiddlewareFactory::class,
-                ResourceStrategy::class        => ResourceStrategyFactory::class,
-                ResourceTreeAdapter::class     => ResourceTreeAdapterFactory::class,
-                ResourceUrlGenerator::class    => ResourceUrlGeneratorFactory::class,
-                TemplateSectionRenderer::class => TemplateSectionRendererFactory::class,
-                WorkflowPageResolver::class    => WorkflowPageResolverFactory::class,
-            ]],
+            [
+                'delegators' => [PageMetadataBuilder::class => [SiteBaseUrlDelegator::class]],
+                'factories'  => [
+                    ResourceMiddleware::class      => ResourceMiddlewareFactory::class,
+                    ResourceStrategy::class        => ResourceStrategyFactory::class,
+                    ResourceTreeAdapter::class     => ResourceTreeAdapterFactory::class,
+                    ResourceTypesAdapter::class    => ResourceTypesAdapterFactory::class,
+                    ResourceUrlGenerator::class    => ResourceUrlGeneratorFactory::class,
+                    TemplateSectionRenderer::class => TemplateSectionRendererFactory::class,
+                    WorkflowPageResolver::class    => WorkflowPageResolverFactory::class,
+                ],
+            ],
             (new ConfigProvider())->getDependencies(),
         );
     }

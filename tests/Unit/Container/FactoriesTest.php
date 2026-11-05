@@ -98,17 +98,22 @@ final class FactoriesTest extends TestCase
     }
 
     #[Test]
-    public function thePageResolverFindsMiddlewareThroughTheWorkflowManager(): void
+    public function thePageResolverFindsTheStoredPageAndItsMiddlewareThroughTheirManagers(): void
     {
         $workflows = new WorkflowPluginManager(new ArrayContainer(), [
             'aliases'   => ['handler' => PageHandlerWorkflow::class],
             'factories' => [PageHandlerWorkflow::class => WorkflowFactory::class],
         ]);
 
-        $container = new ArrayContainer([WorkflowPluginManager::class => $workflows]);
+        $stored           = ResourceFactory::make(1);
+        $stored->workflow = 'handler';
+        $container        = new ArrayContainer([
+            WorkflowPluginManager::class    => $workflows,
+            ResourceManagerInterface::class => new InMemoryResourceManager($stored),
+        ]);
 
         $target = (new WorkflowPageResolverFactory())($container)->resolve(
-            new PreviewRecord('site.page.home', ['resource_id' => '1'], ['workflow' => 'handler']),
+            new PreviewRecord('site.page.home', ['resource_id' => '1'], []),
         );
 
         static::assertSame(PageHandler::class, $target->handler);

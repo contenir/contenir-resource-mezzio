@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Contenir\Resource\Mezzio;
 
+use Contenir\Resource\Core\Metadata\PageMetadataBuilder;
 use Contenir\Resource\Mezzio\Container\ResourceMiddlewareFactory;
 use Contenir\Resource\Mezzio\Container\ResourceStrategyFactory;
 use Contenir\Resource\Mezzio\Container\ResourceTreeAdapterFactory;
+use Contenir\Resource\Mezzio\Container\ResourceTypesAdapterFactory;
 use Contenir\Resource\Mezzio\Container\ResourceUrlGeneratorFactory;
+use Contenir\Resource\Mezzio\Container\SiteBaseUrlDelegator;
 use Contenir\Resource\Mezzio\Container\TemplateSectionRendererFactory;
 use Contenir\Resource\Mezzio\Container\ViewHelperFactory;
 use Contenir\Resource\Mezzio\Container\WorkflowPageResolverFactory;
@@ -21,6 +24,7 @@ use Contenir\Resource\Mezzio\View\Helper\ResourceMetaHelper;
 use Contenir\Resource\Mezzio\View\Helper\ResourceUrlHelper;
 use Contenir\Resource\Mezzio\Workflow\ResourceStrategy;
 use Contenir\Resource\Mezzio\Workflow\ResourceTreeAdapter;
+use Contenir\Resource\Mezzio\Workflow\ResourceTypesAdapter;
 
 /**
  * Registers the Mezzio services and, for mezzio-laminasviewrenderer, the
@@ -34,22 +38,27 @@ use Contenir\Resource\Mezzio\Workflow\ResourceTreeAdapter;
  *
  * It contributes no "contenir_resource" or "workflow_manager" config: every
  * setting has a default in code, and routing is switched on by the
- * application's own workflow_manager config.
+ * application's own workflow_manager config. With no base URL of its own,
+ * the page metadata builder takes the site's URL from its Site Settings.
  *
  * @api
  */
 final class ConfigProvider
 {
     /**
-     * @return array{factories: array<class-string, class-string>}
+     * @return array{delegators: array<class-string, list<class-string>>, factories: array<class-string, class-string>}
      */
     public function getDependencies(): array
     {
         return [
-            'factories' => [
+            'delegators' => [
+                PageMetadataBuilder::class => [SiteBaseUrlDelegator::class],
+            ],
+            'factories'  => [
                 ResourceMiddleware::class      => ResourceMiddlewareFactory::class,
                 ResourceStrategy::class        => ResourceStrategyFactory::class,
                 ResourceTreeAdapter::class     => ResourceTreeAdapterFactory::class,
+                ResourceTypesAdapter::class    => ResourceTypesAdapterFactory::class,
                 ResourceUrlGenerator::class    => ResourceUrlGeneratorFactory::class,
                 TemplateSectionRenderer::class => TemplateSectionRendererFactory::class,
                 WorkflowPageResolver::class    => WorkflowPageResolverFactory::class,
@@ -83,7 +92,7 @@ final class ConfigProvider
     }
 
     /**
-     * @return array{dependencies: array{factories: array<class-string, class-string>}, view_helpers: array{aliases: array<string, string>, factories: array<string, class-string>}}
+     * @return array{dependencies: array{delegators: array<class-string, list<class-string>>, factories: array<class-string, class-string>}, view_helpers: array{aliases: array<string, string>, factories: array<string, class-string>}}
      */
     public function __invoke(): array
     {

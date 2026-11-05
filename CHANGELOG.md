@@ -4,6 +4,30 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.0-RC3] - 2026-10-29
+
+### Added
+
+- `Workflow\ResourceTypesAdapter`, a workflow-mezzio resource adapter that routes every published resource of
+  the types `workflow_manager.resource_types` lists (pages alone when it lists none), each through the workflow
+  its row names, wherever it sits. Unlike `ResourceTreeAdapter`, a page is reachable while it is published
+  whatever its parent, and other types such as projects or news articles are routed beside the pages. Name it as
+  `workflow_manager.repository` to use it.
+- The page metadata builder takes the site's URL from its Site Settings as its base URL when
+  `contenir_resource.base_url` is not set: `site.url`, with the CMS's `settings` overlay laid over it. Canonical
+  and share addresses then never take the request's host on a site that names its address, without any config
+  of its own. A `base_url` set in `contenir_resource` still wins. (`Container\SiteBaseUrlDelegator`, registered
+  on `PageMetadataBuilder`.)
+
+### Changed
+
+- Requires `contenir/contenir-resource` ^2.0.0-RC4, whose page metadata writes the Twitter tags as
+  `<meta name="twitter:…">` with a `twitter:card`; the integration tests expect them so.
+
+- `Preview\WorkflowPageResolver` shows a preview that carries no template by the stored page's workflow, whatever the
+  page's status, rather than by `page`. A shared preview link carries no values, so this is what places it at the
+  page's own template. The resolver takes the `ResourceManagerInterface` as its second argument; its factory passes it.
+
 ## [2.0.0-RC2] - 2026-10-18
 
 ### Added

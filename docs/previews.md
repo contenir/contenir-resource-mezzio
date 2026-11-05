@@ -43,6 +43,10 @@ its id as the `id` route parameter, just as its workflow route carries it. `Reso
 a visit. The page is dispatched without routing, so a changed slug or template shows as it will once saved. A page not
 saved yet has no id and is not previewed, nor is one whose template the site lacks or names no middleware for.
 
+A preview that carries no template is shown by the stored page's workflow, whatever the page's status, and by `page`
+when there is no stored page or it has none. A shared preview link (contenir-preview's §9) carries no values at all, so
+this is how the resolver places one: a section can be shared once it names this resolver.
+
 contenir-workflow-mezzio has no workflow for article-like resources, so their sections have no resolver here; a site can
 name a path or route resolver for them, or a resolver service of its own.
 
