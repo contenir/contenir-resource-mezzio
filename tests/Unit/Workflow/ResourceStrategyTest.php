@@ -37,6 +37,18 @@ final class ResourceStrategyTest extends TestCase
     }
 
     #[Test]
+    public function aBlankTitleKeepsTheWorkflowLabel(): void
+    {
+        $page        = ResourceFactory::make(resourceId: 1);
+        $page->title = '  ';
+
+        static::assertSame(
+            'Untitled',
+            self::strategy(new WorkflowResource($page))->getNavigationConfig()[0]['label'] ?? null,
+        );
+    }
+
+    #[Test]
     public function aResourceWithoutTitleKeepsTheWorkflowLabel(): void
     {
         $page        = ResourceFactory::make(resourceId: 1);

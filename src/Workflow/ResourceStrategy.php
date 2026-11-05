@@ -39,10 +39,11 @@ final class ResourceStrategy extends AbstractResourceStrategy
         }
 
         $entity = $resource->getEntity();
+        $title  = trim((string) $entity->title);
 
         return [
             ...$page,
-            'label'   => $entity->getNavigationLabel() ?? $page['label'],
+            'label'   => '' === $title ? $page['label'] : $entity->title,
             'visible' => $entity->isVisible(),
             'lastmod' => $entity->getMetaModified()?->format(DATE_ATOM),
         ];
