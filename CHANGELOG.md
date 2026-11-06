@@ -4,6 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.0-RC4] - 2026-11-06
+
+### Changed
+
+- Breaking: requires `contenir/contenir-resource` ^2.0.0-RC8, which removes `getNavigationLabel()` and the
+  `title_short` column. A page's navigation label is its title, or the workflow's label when the title is empty.
+  Before: the short title, else the title, else the workflow's label. After: the title, else the workflow's label.
+
 ## [2.0.0-RC3] - 2026-10-29
 
 ### Added

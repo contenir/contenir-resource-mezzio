@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73d6e391413917e2f7e66ad783f069e4",
+    "content-hash": "b6d82ffdb21d399767b18528e93fb81b",
     "packages": [
         {
             "name": "contenir/contenir-db-model",
-            "version": "v2.0.0-rc5",
+            "version": "v2.0.0-rc6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-db-model.git",
-                "reference": "e699fa92fbdf24a8b3ee42dcf0c518c47feb7170"
+                "reference": "ae789c39e290cc825bff2d3c09f21a034098c584"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/e699fa92fbdf24a8b3ee42dcf0c518c47feb7170",
-                "reference": "e699fa92fbdf24a8b3ee42dcf0c518c47feb7170",
+                "url": "https://api.github.com/repos/contenir/contenir-db-model/zipball/ae789c39e290cc825bff2d3c09f21a034098c584",
+                "reference": "ae789c39e290cc825bff2d3c09f21a034098c584",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "issues": "https://github.com/contenir/contenir-db-model/issues",
                 "source": "https://github.com/contenir/contenir-db-model"
             },
-            "time": "2026-10-18T01:53:15+00:00"
+            "time": "2026-11-04T11:10:57+00:00"
         },
         {
             "name": "contenir/contenir-metadata",
@@ -119,16 +119,16 @@
         },
         {
             "name": "contenir/contenir-resource",
-            "version": "v2.0.0-RC4",
+            "version": "v2.0.0-RC8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-resource.git",
-                "reference": "878b5a3a936e26914c4d364407475e0448304f30"
+                "reference": "8c347411b52289a34d2381206e9b3d78bfa705bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/878b5a3a936e26914c4d364407475e0448304f30",
-                "reference": "878b5a3a936e26914c4d364407475e0448304f30",
+                "url": "https://api.github.com/repos/contenir/contenir-resource/zipball/8c347411b52289a34d2381206e9b3d78bfa705bd",
+                "reference": "8c347411b52289a34d2381206e9b3d78bfa705bd",
                 "shasum": ""
             },
             "require": {
@@ -138,7 +138,7 @@
                 "psr/container": "^1.1 || ^2.0"
             },
             "require-dev": {
-                "contenir/contenir-preview": "0.1.x-dev",
+                "contenir/contenir-preview": "^0.3",
                 "contenir/contenir-qa-tools": "0.1.x-dev",
                 "infection/infection": "^0.34.1",
                 "laminas/laminas-servicemanager": "^3.22 || ^4.0",
@@ -180,7 +180,7 @@
                 "issues": "https://github.com/contenir/contenir-resource/issues",
                 "source": "https://github.com/contenir/contenir-resource"
             },
-            "time": "2026-10-27T05:45:32+00:00"
+            "time": "2026-11-06T10:40:43+00:00"
         },
         {
             "name": "contenir/contenir-workflow-mezzio",
@@ -1255,12 +1255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-db/phpdb.git",
-                "reference": "e9dd92db553daae79ddc4ff197b20fe7bbdf6b10"
+                "reference": "54326381bc4dd2ad21c0c49ed08a97932ee10e84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-db/phpdb/zipball/e9dd92db553daae79ddc4ff197b20fe7bbdf6b10",
-                "reference": "e9dd92db553daae79ddc4ff197b20fe7bbdf6b10",
+                "url": "https://api.github.com/repos/php-db/phpdb/zipball/54326381bc4dd2ad21c0c49ed08a97932ee10e84",
+                "reference": "54326381bc4dd2ad21c0c49ed08a97932ee10e84",
                 "shasum": ""
             },
             "require": {
@@ -1314,7 +1314,7 @@
                 "issues": "https://github.com/php-db/phpdb/issues",
                 "source": "https://github.com/php-db/phpdb"
             },
-            "time": "2026-10-12T05:05:03+00:00"
+            "time": "2026-11-04T05:10:13+00:00"
         },
         {
             "name": "psr/cache",

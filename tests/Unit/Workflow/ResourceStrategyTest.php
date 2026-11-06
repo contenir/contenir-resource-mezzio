@@ -37,6 +37,18 @@ final class ResourceStrategyTest extends TestCase
     }
 
     #[Test]
+    public function aBlankTitleKeepsTheWorkflowLabel(): void
+    {
+        $page        = ResourceFactory::make(resourceId: 1);
+        $page->title = '  ';
+
+        static::assertSame(
+            'Untitled',
+            self::strategy(new WorkflowResource($page))->getNavigationConfig()[0]['label'] ?? null,
+        );
+    }
+
+    #[Test]
     public function aResourceWithoutTitleKeepsTheWorkflowLabel(): void
     {
         $page        = ResourceFactory::make(resourceId: 1);
@@ -55,9 +67,8 @@ final class ResourceStrategyTest extends TestCase
             resourceId: 1,
             title: 'About us',
         );
-        $about->titleShort = 'About';
-        $about->updated    = new DateTimeImmutable('2024-01-02 03:04:05+10:00');
-        $team              = ResourceFactory::make(
+        $about->updated = new DateTimeImmutable('2024-01-02 03:04:05+10:00');
+        $team           = ResourceFactory::make(
             resourceId: 2,
             title: 'Team',
         );
@@ -66,7 +77,7 @@ final class ResourceStrategyTest extends TestCase
 
         static::assertSame(
             [[
-                'label'      => 'About',
+                'label'      => 'About us',
                 'route'      => 'page-1',
                 'visible'    => true,
                 'lastmod'    => '2024-01-02T03:04:05+10:00',

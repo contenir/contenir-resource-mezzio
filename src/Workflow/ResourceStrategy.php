@@ -9,6 +9,8 @@ use Contenir\Workflow\Strategy\AbstractResourceStrategy;
 use Contenir\Workflow\Workflow\WorkflowInterface;
 use Override;
 
+use function trim;
+
 use const DATE_ATOM;
 
 /**
@@ -39,10 +41,11 @@ final class ResourceStrategy extends AbstractResourceStrategy
         }
 
         $entity = $resource->getEntity();
+        $title  = trim((string) $entity->title);
 
         return [
             ...$page,
-            'label'   => $entity->getNavigationLabel() ?? $page['label'],
+            'label'   => '' === $title ? $page['label'] : $title,
             'visible' => $entity->isVisible(),
             'lastmod' => $entity->getMetaModified()?->format(DATE_ATOM),
         ];
